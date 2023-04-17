@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+sv-websrv.sh &
+socks5.sh &
+
+if [ -n "$TOPVPN_SERVER" ]; then
+    # wait for sv-websrv starting.
+    sleep 2
+    autologin.sh &
+fi
+
+wait
