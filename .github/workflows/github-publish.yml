@@ -25,6 +25,10 @@ env:
 jobs:
   build:
 
+    strategy:
+      matrix:
+        topsapurl: [ "https://github.com/inclyc/containerized-topsap/releases/download/topsec-v3.5.2.36.2/TopSAP-3.5.2.36.2-x86_64.deb" ]
+
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -81,7 +85,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: |
-            TOPSAP_URL=https://app.topsec.com.cn/vpn/sslvpnclient/TopSAP-3.5.2.36.2-x86_64.deb
+            TOPSAP_URL=${{ matrix.topsapurl }}
           file: Containerfile
 
 
