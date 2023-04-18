@@ -1,5 +1,14 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
+
+_term() {
+  kill -TERM "$__websrv_pid" 2>/dev/null
+  exit
+}
+
+trap _term TERM
+
 sv-websrv.sh &
+__websrv_pid=$!
 socks5.sh &
 
 if [ -n "$TOPVPN_SERVER" ]; then
