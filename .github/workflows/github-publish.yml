@@ -82,6 +82,7 @@ jobs:
           cache-to: type=gha,mode=max
           build-args: |
             TOPSAP_URL=https://app.topsec.com.cn/vpn/sslvpnclient/TopSAP-3.5.2.36.2-x86_64.deb
+          file: Containerfile
 
 
       # Sign the resulting Docker image digest except on PRs.
