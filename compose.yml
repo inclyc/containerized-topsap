@@ -1,0 +1,16 @@
+version: '2'
+services:
+    topsap:
+        image: inclyc/containerized-topsap:main
+        privileged: true
+        devices:
+          - /dev/net/tun
+        # Optional, because server.pem, server.key does not matter.
+        # volumes:
+        #   - $XDG_DATA_DIR/topsap:/data
+        environment:
+          - TOPVPN_SERVER=
+          - TOPVPN_USERNAME=
+          - TOPVPN_PASSWORD=
+        ports:
+          - "127.0.0.1:1081:1080"
