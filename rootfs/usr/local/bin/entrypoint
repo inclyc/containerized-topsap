@@ -7,7 +7,7 @@ _term() {
 
 trap _term TERM
 
-sv-websrv.sh &
+cd /data && env LD_LIBRARY_PATH=/usr/local/lib/ sv_websrv &
 __websrv_pid=$!
 socks5.sh &
 

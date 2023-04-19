@@ -3,7 +3,7 @@
 expect_script=/run/topvpn.expect
 cat > "$expect_script" <<EOF
 #!/usr/bin/env expect
-spawn /topsap/topvpn login
+spawn topvpn login
 
 expect "Input your server address(example:192.168.74.12:8112): "
 send "$TOPVPN_SERVER\r"
